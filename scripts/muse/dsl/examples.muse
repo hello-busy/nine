@@ -1,0 +1,16 @@
+# Example Muse DSL script
+SAY "Hello, Muse. Let's set up a couple of memories."
+REMEMBER favorite_color = "cobalt"
+REMEMBER project_goal = "Make an offline Muse DSL"
+SAY "Stored some memories. Now recall them."
+RECALL favorite_color
+SEARCH "project"
+IF EXISTS favorite_color
+  SAY "I see you have a favorite color. Let's run a short loop."
+  LOOP 3
+    RUN_SKILL gemini_like "brainstorm ideas for a cozy app"
+    WAIT 1
+  ENDLOOP
+ELSE
+  SAY "No favorite color found."
+ENDIF
